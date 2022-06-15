@@ -8,19 +8,21 @@ namespace Ex3._1_Laborator6_
         {
             Console.WriteLine("Introduceti numarul de elevi pe care doriti sa-l introduceti in catalog:");
             int n = int.Parse(Console.ReadLine());
-            Elevi[] elev = new Elevi[n];
+            Elev[] elev = new Elev[n];
             CitesteElev(elev, n);
 
             Catalog unsprezeceD = new Catalog("XI-D", elev);
 
             unsprezeceD.Tipareste();
 
-            int indexPremiant = unsprezeceD.GetPremiant();
-            Console.WriteLine($"Elevul premiant este {elev[indexPremiant].GetNumePremiant()}");
+            unsprezeceD.GetPremiantul();
+
+            Console.WriteLine("Elevul premiant este:");
+            unsprezeceD.GetPremiantul().Tipareste();
         }
-        public static Elevi[] CitesteElev(Elevi[] elev, int n)
+        public static Elev[] CitesteElev(Elev[] elev, int n)
         {
-            Elevi[] elevi = new Elevi[n];
+            Elev[] elevi = new Elev[n];
             for (int i = 0; i < n; i++)
             {
                 Console.WriteLine("Introduceti numele:");
@@ -33,9 +35,9 @@ namespace Ex3._1_Laborator6_
                 int[] note = new int[nrNote];
                 for (int j = 0; j < nrNote; j++)
                 {
-                    note[j]= int.Parse(Console.ReadLine());
+                    note[j] = int.Parse(Console.ReadLine());
                 }
-                elev[i] = new Elevi(nume,prenume,note);
+                elev[i] = new Elev(nume, prenume, note);
             }
             return elevi;
         }

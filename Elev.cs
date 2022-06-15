@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Ex3._1_Laborator6_
 {
-    class Elevi
+    class Elev
     {
         private string nume;
         private string prenume;
@@ -15,7 +15,7 @@ namespace Ex3._1_Laborator6_
         /// <param name="nume"></param>
         /// <param name="prenume"></param>
         /// <param name="note"></param>
-        public Elevi(string nume, string prenume, int[] note)
+        public Elev(string nume, string prenume, int[] note)
         {
 
             this.nume = nume;
@@ -36,15 +36,6 @@ namespace Ex3._1_Laborator6_
             medieCurenta = medieCurenta / listaNote.Length;
 
             return medieCurenta;
-        }
-        /// <summary>
-        /// Returneaza numele si prenumele premiantului.
-        /// </summary>
-        /// <returns></returns>
-        public string GetNumePremiant()
-        {
-            string numePrenume = $"{nume} {prenume}";
-            return numePrenume;
         }
         /// <summary>
         /// Tipareste numele si prenumele.

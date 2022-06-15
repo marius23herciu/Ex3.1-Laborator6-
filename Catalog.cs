@@ -7,13 +7,13 @@ namespace Ex3._1_Laborator6_
     class Catalog
     {
         private string numeleClasei;
-        private Elevi[] listaElevi;
+        private Elev[] listaElevi;
         /// <summary>
         /// Seteaza numele clasei si introduce elevi.
         /// </summary>
         /// <param name="numeleClasei"></param>
         /// <param name="elev"></param>
-        public Catalog(string numeleClasei, Elevi[] elev)
+        public Catalog(string numeleClasei, Elev[] elev)
         {
             this.numeleClasei = numeleClasei;
             this.listaElevi = elev;
@@ -24,44 +24,29 @@ namespace Ex3._1_Laborator6_
         public void Tipareste()
         {
             Console.WriteLine(numeleClasei);
-            foreach (Elevi elev in listaElevi)
+            foreach (Elev elev in listaElevi)
             {
                 elev.Tipareste();
             }
         }
         /// <summary>
-        /// Returneaza un vector cu toate mediile elevilor.
+        /// Returneaza obiectul Elev din Catalog cu media cea mai mare.
         /// </summary>
         /// <returns></returns>
-        public double[] GetMedii()
+        public Elev GetPremiantul()
         {
-            double[] medii = new double[listaElevi.Length];
+            Elev elevPremiant = listaElevi[0];
+            double medieMax = 0;
             for (int i = 0; i < listaElevi.Length; i++)
             {
-                medii[i] = listaElevi[i].GetMedie();
-            }
-
-            return medii;
-        }
-        /// <summary>
-        /// Returneaza indexul din Catalog al elevului premiant.
-        /// </summary>
-        /// <returns></returns>
-        public int GetPremiant()
-        {
-            double[] medii = GetMedii();
-            int indexPremiant = 0;
-            double medieMax = 0;
-            for (int i = 0; i < medii.Length; i++)
-            {
-                if (medii[i] > medieMax)
+                double medieCurenta = listaElevi[i].GetMedie();
+                if (medieCurenta > medieMax)
                 {
-                    medieMax = medii[i];
-                    indexPremiant = i;
+                    medieMax = medieCurenta;
+                    elevPremiant = listaElevi[i];
                 }
             }
-
-            return indexPremiant;
+            return elevPremiant;
         }
     }
 }
