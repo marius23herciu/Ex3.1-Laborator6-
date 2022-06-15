@@ -15,10 +15,10 @@ namespace Ex3._1_Laborator6_
 
             unsprezeceD.Tipareste();
 
-            unsprezeceD.GetPremiantul();
+            Elev elevPremiant = unsprezeceD.GetPremiantul();
 
             Console.WriteLine("Elevul premiant este:");
-            unsprezeceD.GetPremiantul().Tipareste();
+            elevPremiant.Tipareste();
         }
         public static Elev[] CitesteElev(Elev[] elev, int n)
         {
